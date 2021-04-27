@@ -5,6 +5,8 @@ from pydantic import BaseModel
 
 app = FastAPI()
 list_path = Path(__file__).parent / 'ps.lst'
+if not list_path.exists():
+    list_path.touch()
 
 
 class PS(BaseModel):
